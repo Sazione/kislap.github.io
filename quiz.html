@@ -4,33 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Personality Quiz</title>
+    <title>Innovator Personality Quiz</title>
   </head>
   <body class="bg-gray-100 min-h-screen flex flex-col items-center">
-
     <!-- Main Header -->
     <header class="w-full bg-blue-600 text-white py-4 shadow-md mb-6" id="quiz-header">
       <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
         <h1 class="text-2xl font-bold" id="header-text">Innovator Personality Quiz</h1>
-        <!-- IMPORTANT: Replace with actual hosted image URL -->
-        <img src="https://placehold.co/40x40/amber-600/white?text=INNO" alt="Logo" class="w-10 h-10 rounded-full">
+        <img src="assets/images/logo.png" alt="Logo" class="w-10 h-10 rounded-full">
       </div>
     </header>
 
-    <!-- Quiz Section Top Box (Logo / Section Info) -->
+    <!-- Quiz Section Top Box - ADD ID to image -->
     <div id="section-box" class="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-md mb-8 flex items-center space-x-6">
-      <!-- IMPORTANT: Replace with actual hosted image URL -->
-      <img src="https://placehold.co/80x80/amber-600/white?text=INNO" alt="Section Logo" class="w-20 h-20">
-      <div>
+    <img id="section-image" src="assets/images/logo.png" alt="Section Logo" class="w-20 h-20 object-cover rounded-lg">
+    <div>
         <h2 class="text-3xl font-bold" id="section-title">Section 1</h2>
-        <p class="text-gray-600 text-lg italic" id="section-fun-fact">⚡ Fun fact: The microwave was invented when a engineer walked past a radar tube and his chocolate bar melted!</p>
-      </div>
+        <p class="text-gray-600 text-lg italic" id="section-fun-fact"></p>
+    </div>
     </div>
 
-    <!-- Quiz Questions Container - Shows 6 questions at once -->
+    <!-- Quiz Questions Container -->
     <div id="questions-container" class="max-w-2xl w-full mx-auto p-8 bg-white rounded-lg shadow-lg mb-6">
-      
-      <!-- Global Scale Reference - Always visible -->
+      <!-- Global Scale Reference -->
       <div class="bg-gray-50 -mt-4 -mx-8 px-8 py-4 mb-6 border-b border-gray-200 rounded-t-lg">
         <div class="flex justify-between items-center text-sm">
           <div class="flex items-center space-x-2">
@@ -38,12 +34,7 @@
             <span class="font-medium text-gray-700">Strongly Disagree</span>
           </div>
           <div class="flex space-x-6 text-gray-600 font-mono">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
           </div>
           <div class="flex items-center space-x-2">
             <span class="font-medium text-gray-700">Strongly Agree</span>
@@ -52,9 +43,7 @@
         </div>
       </div>
 
-      <div id="questions-list" class="space-y-6 mb-8">
-        <!-- Questions will be dynamically inserted here -->
-      </div>
+      <div id="questions-list" class="space-y-6 mb-8"></div>
       
       <div class="flex justify-end">
         <button id="next-btn" class="px-8 py-4 text-white font-semibold rounded-lg shadow-md transition-all duration-200 hover:shadow-xl hover:scale-105">
@@ -63,400 +52,14 @@
       </div>
     </div>
 
-    <script>
-      // Questions array (36 questions, 6 per section for 6 sections)
-      const questions = [
-        // Section 1: The Efficient Engineer
-        { text: "During groupwork, I suggest ways to save time and effort.", weights: { A:1 } },
-        { text: "I enjoy improving an existing idea more than making something from the beginning.", weights: { A:1 } },
-        { text: "I want to do tests to know which option works best.", weights: { A:1 } },
-        { text: "I think that there are inventions that could make daily life easier.", weights: { A:1 } },
-        { text: "I like making solutions that use less effort but keep good results.", weights: { A:1 } },
-        { text: "I believe that solving problems should focus on saving time, effort, and money.", weights: { A:1 } },
-        
-        // Section 2: The Practical People-Helper - REPHRASED for Likert scale
-        { text: "I instinctively help others when I see they are struggling.", weights: { B:1 } },
-        { text: "I actively seek out volunteering opportunities in my community.", weights: { B:1 } },
-        { text: "I prefer pets that are loyal and affectionate.", weights: { B:1 } },
-        { text: "I am motivated to help others because I genuinely care about their wellbeing.", weights: { B:1 } },
-        { text: "I believe a world where everyone helps one another is achievable.", weights: { B:1 } },
-        { text: "Making others smile brings me genuine joy.", weights: { B:1 } },
-        
-        // Section 3: The Environment Enthusiast
-        { text: "I actively try to reduce my carbon footprint in daily life.", weights: { C:1 } },
-        { text: "I feel a strong connection to nature and the outdoors.", weights: { C:1 } },
-        { text: "I believe businesses should be held accountable for environmental damage.", weights: { C:1 } },
-        { text: "I would pay more for sustainable and eco-friendly products.", weights: { C:1 } },
-        { text: "I get frustrated when I see people wasting resources like water or electricity.", weights: { C:1 } },
-        { text: "I think about how my choices today will affect the planet for future generations.", weights: { C:1 } },
-        
-        // Section 4: The Precise Problem-Solver
-        { text: "I am naturally drawn to issues that most people overlook.", weights: { D:1 } },
-        { text: "I believe that it is time consuming and unnecessary to wait for all the facts before making a decision. (Reversed)", weights: { D:1 } },
-        { text: "If something malfunctions, I find myself trying to understand what happened first before asking others for help.", weights: { D:1 } },
-        { text: "I see 'trial and error' as a way to gather data rather than as a series of failures.", weights: { D:1 } },
-        { text: "I overlook the small details because I prefer to focus on the bigger picture. (Reversed)", weights: { D:1 } },
-        { text: "I am motivated to refine and improve existing solutions to the persisting problems in our society.", weights: { D:1 } },
-        
-        // Section 5: The Resourceful Recycler
-        { text: "I am capable of improvising on doing a task when the materials I need for it is not available.", weights: { E:1 } },
-        { text: "I can see the potential in objects aside from the standard purposes they usually are used for.", weights: { E:1 } },
-        { text: "I am creative enough to not give up and work my way around, in times of limited resources.", weights: { E:1 } },
-        { text: "I struggle to solve problems when I do not have the specific materials for it. (Reversed)", weights: { E:1 } },
-        { text: "I cannot start a task if I don't have every single one tool that I need for it. (Reversed)", weights: { E:1 } },
-        { text: "I believe that new things and technologies can be made from everyday things that most if not all people have.", weights: { E:1 } },
-        
-        // Section 6: The Timeless Thinker
-        { text: "I am sentimental about enduring my legacy.", weights: { F:1 } },
-        { text: "I view innovation as something designed for permanence.", weights: { F:1 } },
-        { text: "I strive to provide long-term solutions for persistent problems.", weights: { F:1 } },
-        { text: "I am driven by the success of the future.", weights: { F:1 } },
-        { text: "I view the past and the present as lessons for the future.", weights: { F:1 } },
-        { text: "I care about leaving a mark on the world.", weights: { F:1 } },
-      ];
-
-      let currentSection = 0;
-      let scores = { A:0, B:0, C:0, D:0, E:0, F:0 };
-      
-      // Track selected answers for current section
-      let selectedAnswers = {};
-
-      // Sections config
-      const sectionBackgrounds = [
-        "bg-amber-100", "bg-rose-100", "bg-emerald-100",
-        "bg-indigo-100", "bg-teal-100", "bg-violet-100"
-      ];
-      const sectionHeaderColors = [
-        "bg-amber-500","bg-rose-500","bg-emerald-500",
-        "bg-indigo-500","bg-teal-500","bg-violet-500"
-      ];
-      const sectionAccentColors = [
-        "bg-amber-600 hover:bg-amber-700", "bg-rose-600 hover:bg-rose-700", "bg-emerald-600 hover:bg-emerald-700",
-        "bg-indigo-600 hover:bg-indigo-700", "bg-teal-600 hover:bg-teal-700", "bg-violet-600 hover:bg-violet-700"
-      ];
-      const sectionFunFacts = [
-        "⚡ Fun fact: The microwave was invented when an engineer walked past a radar tube and his chocolate bar melted! Percy Spencer was the genius who then tested it with popcorn... and an egg (which exploded in his face).",
-        "💝 Fun fact: The inventor of the modern fire extinguisher, George William Manby, was inspired to create it after watching a failed rescue at sea. Humans helping humans since 1818!",
-        "🌍 Fun fact: A single recycled glass bottle saves enough energy to power a laptop for 30 minutes. Your future self (and the planet) thank you!",
-        "🔬 Fun fact: Einstein didn't start talking until age 4. His teachers said he'd \"never amount to anything.\" Joke's on them—he's basically the poster child for overthinkers.",
-        "♻️ Fun fact: The 'happy birthday' song was originally written as 'Good Morning to All' by two sisters who were teachers. Sometimes the best innovations are just old things repurposed!",
-        "⏳ Fun fact: The oldest known tree, a Great Basin bristlecone pine named Methuselah, is 4,856 years old. It was already a millennium old when the last woolly mammoths died out. Talk about leaving a legacy!"
-      ];
-      const sectionNames = [
-        "Section 1: Efficiency & Optimization",
-        "Section 2: Compassion & Community",
-        "Section 3: Sustainability & Nature",
-        "Section 4: Analysis & Precision",
-        "Section 5: Adaptation & Resourcefulness",
-        "Section 6: Legacy & Long-term Thinking"
-      ];
-      const questionsPerSection = 6;
-
-      // Personality trait colors (matching section colors)
-      const traitColors = {
-        A: { bg: "bg-amber-500", light: "bg-amber-100", hex: "#f59e0b", dark: "amber-700", button: "bg-amber-600 hover:bg-amber-700", text: "text-amber-600" },
-        B: { bg: "bg-rose-500", light: "bg-rose-100", hex: "#f43f5e", dark: "rose-700", button: "bg-rose-600 hover:bg-rose-700", text: "text-rose-600" },
-        C: { bg: "bg-emerald-500", light: "bg-emerald-100", hex: "#10b981", dark: "emerald-700", button: "bg-emerald-600 hover:bg-emerald-700", text: "text-emerald-600" },
-        D: { bg: "bg-indigo-500", light: "bg-indigo-100", hex: "#6366f1", dark: "indigo-700", button: "bg-indigo-600 hover:bg-indigo-700", text: "text-indigo-600" },
-        E: { bg: "bg-teal-500", light: "bg-teal-100", hex: "#14b8a6", dark: "teal-700", button: "bg-teal-600 hover:bg-teal-700", text: "text-teal-600" },
-        F: { bg: "bg-violet-500", light: "bg-violet-100", hex: "#8b5cf6", dark: "violet-700", button: "bg-violet-600 hover:bg-violet-700", text: "text-violet-600" }
-      };
-
-      // DOM Elements
-      const questionsList = document.getElementById("questions-list");
-      const nextBtn = document.getElementById("next-btn");
-      const header = document.getElementById("quiz-header");
-      const sectionTitle = document.getElementById("section-title");
-      const sectionFunFact = document.getElementById("section-fun-fact");
-
-      function scrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
-
-      function scrollToTopInstant() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'instant'
-        });
-      }
-
-      function showSection() {
-        const startIdx = currentSection * questionsPerSection;
-        const sectionQuestions = questions.slice(startIdx, startIdx + questionsPerSection);
-        
-        // Reset selected answers for this section
-        selectedAnswers = {};
-
-        // Update section title
-        sectionTitle.textContent = sectionNames[currentSection];
-        
-        // Update fun fact
-        sectionFunFact.textContent = sectionFunFacts[currentSection];
-
-        // Update body background
-        sectionBackgrounds.forEach(bg => document.body.classList.remove(bg));
-        document.body.classList.add(sectionBackgrounds[currentSection]);
-
-        // Update header color
-        header.className = `w-full ${sectionHeaderColors[currentSection]} text-white py-4 shadow-md mb-6`;
-
-        // Update next button color with section accent
-        nextBtn.className = `px-8 py-4 ${sectionAccentColors[currentSection]} text-white font-semibold rounded-lg shadow-md transition-all duration-200 hover:shadow-xl hover:scale-105`;
-
-        // Generate all 6 questions with centered Likert buttons
-        questionsList.innerHTML = sectionQuestions.map((q, index) => {
-          const questionNumber = startIdx + index + 1;
-          return `
-            <div class="border-b border-gray-200 pb-6 last:border-0">
-              <p class="text-lg font-semibold mb-4">${questionNumber}. ${q.text}</p>
-              <div class="flex justify-center w-full" id="question-${startIdx + index}">
-                <div class="flex justify-center space-x-3">
-                  ${generateLikertButtons(startIdx + index)}
-                </div>
-              </div>
-              ${q.text.includes("(Reversed)") ? '<p class="text-xs text-gray-400 italic mt-1 text-center">(Reverse scored)</p>' : ''}
-            </div>
-          `;
-        }).join('');
-
-        // Attach click handlers to all buttons
-        attachButtonHandlers();
-        
-        // Scroll to top smoothly
-        scrollToTop();
-      }
-
-      function generateLikertButtons(questionIndex) {
-        let buttons = '';
-        for (let i = 1; i <= 6; i++) {
-          const color = i <= 3 ? 'border-red-400 text-red-500' : 'border-green-400 text-green-500';
-          buttons += `
-            <button 
-              data-question="${questionIndex}" 
-              data-value="${i}"
-              class="likert-btn w-12 h-12 rounded-full border-2 ${color} flex items-center justify-center font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-110"
-            >${i}</button>
-          `;
-        }
-        return buttons;
-      }
-
-      function attachButtonHandlers() {
-        document.querySelectorAll('.likert-btn').forEach(btn => {
-          btn.addEventListener('click', function(e) {
-            const questionIdx = parseInt(this.dataset.question);
-            const value = parseInt(this.dataset.value);
-            
-            // Remove selected state from all buttons in this question
-            document.querySelectorAll(`[data-question="${questionIdx}"]`).forEach(b => {
-              b.classList.remove('bg-red-500', 'bg-green-500', 'text-white', 'border-transparent');
-              // Restore original colors
-              const val = parseInt(b.dataset.value);
-              if (val <= 3) {
-                b.classList.add('border-red-400', 'text-red-500');
-              } else {
-                b.classList.add('border-green-400', 'text-green-500');
-              }
-            });
-            
-            // Add selected state to clicked button
-            this.classList.remove('border-red-400', 'border-green-400', 'text-red-500', 'text-green-500');
-            this.classList.add('border-transparent', 'text-white');
-            
-            if (value <= 3) {
-              this.classList.add('bg-red-500');
-            } else {
-              this.classList.add('bg-green-500');
-            }
-            
-            // Store the selected answer
-            selectedAnswers[questionIdx] = value;
-          });
-        });
-      }
-
-      function saveSectionAnswers() {
-        const startIdx = currentSection * questionsPerSection;
-        
-        // Save all selected answers for this section
-        for (let i = 0; i < questionsPerSection; i++) {
-          const questionIdx = startIdx + i;
-          const answer = selectedAnswers[questionIdx];
-          
-          if (answer) {
-            const q = questions[questionIdx];
-            for (let p in q.weights) {
-              // Handle reversed questions (where lower score is better for the trait)
-              if (q.text.includes("(Reversed)")) {
-                scores[p] += (7 - answer) * q.weights[p];
-              } else {
-                scores[p] += answer * q.weights[p];
-              }
-            }
-          }
-        }
-      }
-
-      nextBtn.addEventListener("click", () => {
-        // Check if all questions in current section are answered
-        const startIdx = currentSection * questionsPerSection;
-        let allAnswered = true;
-        
-        for (let i = 0; i < questionsPerSection; i++) {
-          if (!selectedAnswers[startIdx + i]) {
-            allAnswered = false;
-            break;
-          }
-        }
-        
-        if (!allAnswered) {
-          alert("Please answer all 6 questions before continuing!");
-          return;
-        }
-        
-        // Save answers from this section
-        saveSectionAnswers();
-        
-        // Move to next section
-        currentSection++;
-        
-        if (currentSection < questions.length / questionsPerSection) {
-          showSection();
-        } else {
-          // Scroll to top before showing results
-          scrollToTopInstant();
-          
-          // Find top traits
-          const sortedTraits = Object.entries(scores).sort((a,b) => b[1] - a[1]);
-          const topTrait = sortedTraits[0][0];
-          const topTraitColor = traitColors[topTrait];
-          
-          // Change header color to match dominant trait
-          header.className = `w-full ${topTraitColor.bg} text-white py-4 shadow-md mb-6`;
-          
-          // Change body background to match dominant trait's light color
-          sectionBackgrounds.forEach(bg => document.body.classList.remove(bg));
-          document.body.classList.add(topTraitColor.light);
-          
-          // Calculate and display results with proper colors
-          let resultHTML = `
-            <!-- HUGE LOGO PLACEHOLDER - Replace with actual hosted image -->
-            <div class="flex justify-center mb-6">
-              <img src="https://placehold.co/120x120/${topTraitColor.hex.replace('#', '')}/white?text=INNO" alt="Innovator Logo" class="w-30 h-30 rounded-full shadow-lg border-4" style="border-color: ${topTraitColor.hex};">
-            </div>
-            <h2 class="text-2xl font-bold mb-4" style="color: ${topTraitColor.hex};">Your Innovator Profile</h2>
-          `;
-          resultHTML += "<div class='space-y-3 text-left'>";
-          
-          const traitNames = {
-            A: "🔧 The Efficient Engineer",
-            B: "🤝 The Practical People-Helper",
-            C: "🌿 The Environment Enthusiast",
-            D: "🔍 The Precise Problem-Solver",
-            E: "♻️ The Resourceful Recycler",
-            F: "⏳ The Timeless Thinker"
-          };
-          
-          const traitDescriptions = {
-            A: "You optimize processes and value efficiency above all. You make things better, faster, and smarter.",
-            B: "You're driven by compassion and community. Your innovations center around human needs.",
-            C: "You champion sustainability. You create solutions that honor and protect our planet.",
-            D: "You notice what others miss. Your analytical mind dissects problems with surgical precision.",
-            E: "You see potential everywhere. Nothing goes to waste in your hands—you're a master of adaptation.",
-            F: "You build for centuries, not seconds. Your work is your legacy, crafted with permanence in mind."
-          };
-          
-          // Display top trait first with highlight using trait color
-          resultHTML += `<div class="p-4 border-2 rounded-lg mb-4" style="background-color: ${topTraitColor.light.replace('bg-', '')}; border-color: ${topTraitColor.hex};">
-            <p class="text-xl font-bold" style="color: ${topTraitColor.hex};">Your Dominant Style:</p>
-            <p class="text-2xl font-black mt-1" style="color: ${topTraitColor.hex};">${traitNames[topTrait]}</p>
-            <p class="text-md text-gray-700 mt-2">${traitDescriptions[topTrait]}</p>
-          </div>`;
-          
-          // Display all scores with colored progress bars
-          resultHTML += "<p class='font-semibold text-lg mt-4'>Your Complete Profile:</p>";
-          sortedTraits.forEach(([trait, score]) => {
-            const percentage = Math.round((score / 36) * 100);
-            const traitColor = traitColors[trait];
-            resultHTML += `<div class="mt-3">
-              <div class="flex justify-between">
-                <p><strong>${traitNames[trait]}</strong></p>
-                <p class="font-bold" style="color: ${traitColor.hex};">${score} pts</p>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-3 mt-1">
-                <div class="h-3 rounded-full" style="width: ${percentage}%; background-color: ${traitColor.hex};"></div>
-              </div>
-              <p class="text-sm text-gray-600 mt-1">${traitDescriptions[trait]}</p>
-            </div>`;
-          });
-          
-          resultHTML += "</div>";
-          
-          // Create colored retake button based on top trait
-          const retakeButtonColor = traitColors[topTrait].button;
-          
-          document.getElementById("questions-container").innerHTML = `
-            <div class="p-6 text-center">
-              ${resultHTML}
-              <button onclick="location.reload()" class="mt-8 px-8 py-4 ${retakeButtonColor} text-white font-semibold rounded-lg shadow-md transition-all duration-200 hover:shadow-xl hover:scale-105">
-                Take Quiz Again
-              </button>
-            </div>
-          `;
-          nextBtn.style.display = 'none';
-          document.getElementById("section-box").style.display = 'none';
-          
-          // Scroll to top again after results are loaded
-          setTimeout(() => scrollToTopInstant(), 50);
-        }
-      });
-
-      function getTraitColor(trait) {
-        return traitColors[trait]?.hex || "#94a3b8";
-      }
-
-      window.onload = () => showSection();
-    </script>
-
-    <!-- 
-    =============================================
-    IMAGE HOSTING INSTRUCTIONS
-    =============================================
-    
-    Do you need to include images when passing this website?
-    
-    YES - You need to host your images somewhere online. Options:
-    
-    1. FREE OPTIONS:
-       - Imgur (https://imgur.com) - Upload, get direct image links
-       - Cloudinary (https://cloudinary.com) - Free tier
-       - Google Drive - Share as public link
-       - Dropbox - Share as public link
-    
-    2. PAID OPTIONS:
-       - Your own web hosting/server
-       - AWS S3, DigitalOcean Spaces
-    
-    CURRENT PLACEHOLDERS:
-    - Header logo: https://placehold.co/40x40/amber-600/white?text=INNO
-    - Section logo: https://placehold.co/80x80/amber-600/white?text=INNO
-    - Results logo: Changes color based on your dominant trait!
-    
-    TO REPLACE:
-    1. Upload your actual logo.png somewhere
-    2. Get the direct image URL
-    3. Replace ALL placeholder URLs with your actual image URL
-    
-    EXAMPLE:
-    <img src="https://yourhosting.com/your-actual-logo.png">
-    
-    The placeholder images will work for testing/development,
-    but you MUST replace them with hosted images before sharing!
-    =============================================
-    -->
-
+    <!-- Load JavaScript files in correct order -->
+    <script src="js/data/config.js"></script>
+    <script src="js/data/questions.js"></script>
+    <script src="js/utils/scroll.js"></script>
+    <script src="js/utils/scoring.js"></script>
+    <script src="js/components/likert.js"></script>
+    <script src="js/components/results.js"></script>
+    <script src="js/components/quizUI.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
