@@ -79,3 +79,4 @@ const RESULT_IMAGES = {
   E: "assets/images/resourceful recycler.png",
   F: "assets/images/timeless thinker.png"
 };
+
