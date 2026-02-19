@@ -45,27 +45,11 @@
     </div>
 
     <!-- simple descriptor with new colors -->
-    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-[#292F69] mb-4 tracking-widest uppercase"> Innovator Personality Quiz </h2>
+    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-[#292F69] mb-4 tracking-widest uppercase"> What Kind of Innovator are You? </h2>
 
     <!-- Tagline box with new palette -->
     <div class="bg-white/90 rounded-2xl p-5 md:p-6 mb-8 shadow-lg max-w-2xl mx-auto border border-[#71559F]">
-      <p class="text-lg md:text-xl text-[#292F69]"> <span class="font-medium"> Know your innovative personality!</span> </p>
-    </div>
-
-    <!-- Stats Cards updated with navy/ purple -->
-    <div class="flex flex-wrap justify-center gap-6 md:gap-10 mb-10">
-      <div class="bg-white/90 px-6 py-4 rounded-2xl shadow-md border border-[#71559F]">
-        <div class="text-3xl md:text-4xl font-bold text-[#292F69]">6</div>
-        <div class="text-xs md:text-sm text-[#71559F] uppercase tracking-wider">Personalities</div>
-      </div>
-      <div class="bg-white/90 px-6 py-4 rounded-2xl shadow-md border border-[#71559F]">
-        <div class="text-3xl md:text-4xl font-bold text-[#292F69]">36</div>
-        <div class="text-xs md:text-sm text-[#71559F] uppercase tracking-wider">Questions</div>
-      </div>
-      <div class="bg-white/90 px-6 py-4 rounded-2xl shadow-md border border-[#71559F]">
-        <div class="text-3xl md:text-4xl font-bold text-[#292F69]">5min</div>
-        <div class="text-xs md:text-sm text-[#71559F] uppercase tracking-wider">To Complete</div>
-      </div>
+      <p class="text-lg md:text-xl text-[#292F69] text-black text-justify">  This quiz demonstrates your innovator personality, describing what the goals of your <span class="text-amber-500 text-2xl">“kislap”</span>—your innovative sparks of ideas—are. Do you want to be efficient at your task? Or solve specific problems in niche fields? Maybe offer help to the masses? Or even contribute in saving the environment? </p>
     </div>
 
     <!-- Quiz button using the two colors (navy + purple) -->
@@ -74,67 +58,6 @@
     </div>
   </div>
 </section>
-
-<!-- Filipino Innovations Section - Dynamically loaded, colors updated -->
-<section id="innovations-section" class="bg-[#E6D9FF] py-16 px-4 border-t-4 border-[#292F69]"> <!-- light purple bg with navy border -->
-  <div class="max-w-6xl mx-auto">
-    <!-- Header with new colors -->
-    <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-[#292F69] mb-3">Filipino Innovations</h2>
-      <p class="text-lg text-[#71559F] max-w-2xl mx-auto">pioneering ideas from the archipelago</p>
-    </div>
-
-    <!-- Innovations Container - JS will populate this, but cards now use updated border/ text colors -->
-    <div id="innovations-container" class="space-y-8">
-      <!-- Innovations loaded dynamically, but the template inside script will reflect #292F69 and #71559F -->
-    </div>
-  </div>
-</section>
-
-<script src="js/data/innovations.js"></script>
-<script>
-  // Load innovations when page loads – with color classes updated to match #292F69 and #71559F
-  document.addEventListener('DOMContentLoaded', function() {
-    const container = document.getElementById('innovations-container');
-    if (container && typeof INNOVATIONS !== 'undefined') {
-      container.innerHTML = INNOVATIONS.map(innovation => `
-        <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden border border-[#71559F]">
-          <!-- Image container - FILLS the space -->
-          <div class="md:w-2/5 h-64 md:h-auto bg-[#E6D9FF] overflow-hidden">
-            <img src="${innovation.image}" alt="${innovation.alt}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/71559F/ffffff?text=${innovation.icon}'">
-          </div>
-          <!-- Text container -->
-          <div class="md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-[#292F69] mb-3">${innovation.title}</h3>
-            <p class="text-[#71559F] text-base md:text-lg leading-relaxed">${innovation.description}</p>
-          </div>
-        </div>
-      `).join('');
-    } else if (container) {
-      // fallback demo content using new colors if innovations.js not found
-      container.innerHTML = `
-        <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden border border-[#71559F]">
-          <div class="md:w-2/5 h-64 md:h-auto bg-[#E6D9FF] overflow-hidden">
-            <img src="https://placehold.co/600x400/71559F/ffffff?text=💡" class="w-full h-full object-cover">
-          </div>
-          <div class="md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-[#292F69] mb-3">Karaoke (Sing-alike system)</h3>
-            <p class="text-[#71559F] text-base md:text-lg leading-relaxed">Invented by Roberto del Rosario, the karaoke machine revolutionized global music entertainment.</p>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg overflow-hidden border border-[#71559F]">
-          <div class="md:w-2/5 h-64 md:h-auto bg-[#E6D9FF] overflow-hidden">
-            <img src="https://placehold.co/600x400/71559F/ffffff?text=🩺" class="w-full h-full object-cover">
-          </div>
-          <div class="md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-[#292F69] mb-3">Medical Incubator</h3>
-            <p class="text-[#71559F] text-base md:text-lg leading-relaxed">Fe del Mundo's ingenious bamboo incubator addressed the lack of electricity in rural areas.</p>
-          </div>
-        </div>
-      `;
-    }
-  });
-</script>
 
 <!-- ensure body has no leftover margin/padding -->
 </body>
