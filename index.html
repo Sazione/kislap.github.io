@@ -7,6 +7,13 @@
   <title>KISLAP · Filipino Innovations</title>
   <style>
     html { scroll-behavior: smooth; }
+    @keyframes fadeIn {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+    .carousel-slide {
+      animation: fadeIn 0.5s ease-in-out;
+    }
   </style>
 </head>
 <body class="m-0 p-0">
@@ -36,10 +43,10 @@
   </div>
 </section>
 
-<!-- SECOND SECTION: Quiz info with BIG CENTERED LOGO (only the big logo, title removed) -->
+<!-- SECOND SECTION: Quiz info with BIG CENTERED LOGO -->
 <section id="quiz-details" class="bg-[#F2E9FF] py-16 px-4"> <!-- soft lavender background -->
   <div class="max-w-5xl mx-auto text-center">
-    <!-- BIG CENTERED LOGO only (no extra KISLAP heading) -->
+    <!-- BIG CENTERED LOGO only -->
     <div class="flex justify-center mb-8">
       <img src="assets/images/big%20logo%20final.png" alt="KISLAP" class="w-500 h-400 object-contain">
     </div>
@@ -52,12 +59,168 @@
       <p class="text-lg md:text-xl text-[#292F69] text-black text-justify">  This quiz demonstrates your innovator personality, describing what the goals of your <span class="text-amber-500 text-2xl">“kislap”</span>—your innovative sparks of ideas—are. Do you want to be efficient at your task? Or solve specific problems in niche fields? Maybe offer help to the masses? Or even contribute in saving the environment? </p>
     </div>
 
-    <!-- Quiz button using the two colors (navy + purple) -->
+    <!-- Quiz button -->
     <div class="mt-12">
       <a href="quiz.html" class="inline-block px-10 py-4 md:px-14 md:py-5 bg-[#292F69] hover:bg-[#1e2349] text-white text-xl md:text-2xl font-bold rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border border-[#71559F]"> <span class="mr-3">🚀</span> TAKE THE QUIZ <span class="ml-3">→</span> </a>
     </div>
   </div>
 </section>
+
+<!-- THIRD SECTION: Innovation Carousel -->
+<section class="bg-white py-16 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#292F69] mb-4">Filipino Innovations</h2>
+    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Discover the brilliant minds and creations that showcase the Filipino "kislap"</p>
+    
+    <!-- Carousel Container -->
+    <div class="relative">
+      <!-- Carousel Items (hidden by default, shown via JS) -->
+      <div id="carousel-container" class="relative h-[500px] md:h-[600px] overflow-hidden rounded-2xl">
+        <!-- Images will be inserted here by JavaScript -->
+      </div>
+      
+        <!-- Navigation Buttons - change left-4/right-4 to larger values -->
+        <button id="prevBtn" class="absolute left-8 md:left-12 top-1/2 transform -translate-y-1/2 bg-[#292F69] text-white p-3 rounded-full hover:bg-[#1e2349] transition-all shadow-lg z-10 w-12 h-12 flex items-center justify-center text-2xl">
+          ←
+        </button>
+        <button id="nextBtn" class="absolute right-8 md:right-12 top-1/2 transform -translate-y-1/2 bg-[#292F69] text-white p-3 rounded-full hover:bg-[#1e2349] transition-all shadow-lg z-10 w-12 h-12 flex items-center justify-center text-2xl">
+          →
+        </button>
+      
+      <!-- Dots Indicator -->
+      <div id="dots-container" class="flex justify-center mt-6 space-x-3">
+        <!-- Dots will be inserted here -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Array of innovation images - UPDATE THESE PATHS TO MATCH YOUR ACTUAL FILES
+  const innovationImages = [
+    "assets/images/innovation images/EFFICIENT ENGINEER.png",
+    "assets/images/innovation images/EFFICIENT ENGINEER (2).png",
+    "assets/images/innovation images/PRACTICAL PEOPLE HELPER.png",
+    "assets/images/innovation images/PRACTICAL PEOPLE HELPER (2).png",
+    "assets/images/innovation images/ENVIRONMENTAL ENTHUSIAST.png",
+    "assets/images/innovation images/ENVIRONMENTAL ENTHUSIAST (2).png",
+    "assets/images/innovation images/PRECISE PROBLEM SOLVER.png",
+    "assets/images/innovation images/PRECISE PROBLEM SOLVER (2).png",
+    "assets/images/innovation images/RESOURCEFUL RECYCLER.png",
+    "assets/images/innovation images/RESOURCEFUL RECYCLER (2).png",
+    "assets/images/innovation images/TIMELESS THINKER.png",
+    "assets/images/innovation images/TIMELESS THINKER (2).png",
+  ];
+
+  // Shuffle array function
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  // Randomize the images
+  const shuffledImages = shuffleArray([...innovationImages]);
+  
+  let currentIndex = 0;
+  const container = document.getElementById('carousel-container');
+  const dotsContainer = document.getElementById('dots-container');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  // Build carousel HTML
+  function buildCarousel() {
+    let carouselHTML = '';
+    shuffledImages.forEach((img, index) => {
+      carouselHTML += `
+        <div class="carousel-slide absolute inset-0 w-full h-full transition-opacity duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0'}" style="pointer-events: ${index === 0 ? 'auto' : 'none'};">
+          <img src="${img}" alt="Innovation ${index + 1}" class="w-full h-full object-cover">
+        </div>
+      `;
+    });
+    container.innerHTML = carouselHTML;
+
+    // Build dots
+    let dotsHTML = '';
+    shuffledImages.forEach((_, index) => {
+      dotsHTML += `
+        <button class="dot w-3 h-3 rounded-full ${index === 0 ? 'bg-[#71559F]' : 'bg-gray-300'} hover:bg-[#71559F] transition-all" data-index="${index}"></button>
+      `;
+    });
+    dotsContainer.innerHTML = dotsHTML;
+
+    // Add click events to dots
+    document.querySelectorAll('.dot').forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        const index = parseInt(e.target.dataset.index);
+        goToSlide(index);
+      });
+    });
+  }
+
+  // Go to specific slide
+  function goToSlide(index) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    slides.forEach((slide, i) => {
+      if (i === index) {
+        slide.classList.remove('opacity-0');
+        slide.classList.add('opacity-100');
+        slide.style.pointerEvents = 'auto';
+      } else {
+        slide.classList.remove('opacity-100');
+        slide.classList.add('opacity-0');
+        slide.style.pointerEvents = 'none';
+      }
+    });
+    
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.remove('bg-gray-300');
+        dot.classList.add('bg-[#71559F]');
+      } else {
+        dot.classList.remove('bg-[#71559F]');
+        dot.classList.add('bg-gray-300');
+      }
+    });
+    
+    currentIndex = index;
+  }
+
+  // Next slide
+  function nextSlide() {
+    const nextIndex = (currentIndex + 1) % shuffledImages.length;
+    goToSlide(nextIndex);
+  }
+
+  // Previous slide
+  function prevSlide() {
+    const prevIndex = (currentIndex - 1 + shuffledImages.length) % shuffledImages.length;
+    goToSlide(prevIndex);
+  }
+
+  // Initialize carousel
+  buildCarousel();
+
+  // Event listeners
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
+
+  // Auto-advance carousel every 5 seconds
+  setInterval(nextSlide, 5000);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      prevSlide();
+    } else if (e.key === 'ArrowRight') {
+      nextSlide();
+    }
+  });
+</script>
 
 <!-- ensure body has no leftover margin/padding -->
 </body>

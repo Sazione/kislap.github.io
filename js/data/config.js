@@ -25,12 +25,12 @@ const CONFIG = {
       "assets/images/timeless thinker.png"
   ],
   sectionFunFacts: [
-    "⚡ Fun fact: The microwave was invented when an engineer walked past a radar tube and his chocolate bar melted!",
-    "💝 Fun fact: The inventor of the modern fire extinguisher was inspired after watching a failed rescue at sea.",
-    "🌍 Fun fact: A single recycled glass bottle saves enough energy to power a laptop for 30 minutes.",
-    "🔬 Fun fact: Einstein didn't start talking until age 4. His teachers said he'd 'never amount to anything.'",
-    "♻️ Fun fact: The 'happy birthday' song was originally written as 'Good Morning to All' by two sisters.",
-    "⏳ Fun fact: The oldest known tree, Methuselah, is 4,856 years old."
+    "⚡ You've been, Thunderstruck! But seriously, be careful around electricity                     ",
+    "💝 <3 :D :) ¯\_(ツ)_/¯ ツ Be nice to people. Stay Determined                               ",
+    "🌍 I like grass. I like trees. I like flowers. The world is nice.                                    ",
+    "🔬 What's 10 + 9? (21). Not 67, please no.                                ",
+    "♻️ Reduce, Reuse, and What? That's right, Recycle!                         ",
+    "⏳ Time is relative. She's my grandma!                            "
   ],
   sectionNames: [
     "Efficiency",
@@ -62,12 +62,12 @@ const TRAIT_NAMES = {
 };
 
 const TRAIT_DESCRIPTIONS = {
-  A: "You optimize processes and value efficiency above all. You make things better, faster, and smarter.",
-  B: "You're driven by compassion and community. Your innovations center around human needs.",
-  C: "You champion sustainability. You create solutions that honor and protect our planet.",
-  D: "You notice what others miss. Your analytical mind dissects problems with surgical precision.",
-  E: "You see potential everywhere. Nothing goes to waste in your hands—you're a master of adaptation.",
-  F: "You build for centuries, not seconds. Your work is your legacy, crafted with permanence in mind."
+  A: "As the Efficient Engineer, your “kislap” are the type of innovator that looks for better, faster, and smarter ways to do things. You look for solutions to save time, energy, and resources, whether in school, at home, or in everyday life. You are the kind of person who can turn simple ideas into useful inventions that help communities and industries work better. People with your mindset often thrive in fields like engineering, technology, and innovation, where creating better solutions matters. With your strive for improving systems, you could turn your “kislap” into efficient solutions that make life easier for every Filipino around you!",
+  B: "As the Practial People-Helper, you are the type of innovator who focus around helping other people. You see problems that affect not only yourself, but also the community. As such, you try to make ways to help make the world a little brighter!",
+  C: "As the Environment Enthusiast, you are the type of innovator whose main concern is the environment. Issues like global warming, deforestation, climate change, and environmental destruction deeply concern you. As such, you try to prevent the ruin of our beautiful world",
+  D: "As the Precise Problem Solver, you are type of innovator who focuses on overlooked issues that others miss, diving deep into the “why’s” and “how’s” of the challenges you come across. You enjoy understanding the complexities of issues on your own before seeking the input of others and jumping to conclusions. A quick fix is not what you aim for, so when mistakes happen along the way, you do not see it as failure; instead, you see it as valuable information that will lead you closer to better solutions. Although your focus on precision admittedly takes longer, it helps you create solutions that are truly optimized and precise. People with your mindset make a natural fit for research, system analysis, and data science, among many others. These fields are known for being precise by spotting and solving hidden issues to boost progress. With your focus on details and refusal to settle for something that is just “good enough,” offer your “kislap” to take a step in solving problems in the Filipino community!",
+  E: "As the Resourceful Recycler, you are the type of innovator that sees beyond the default purpose of everyday objects, and reimages it into extraordinary creations. You do not fear in handling problems without usual resources; in fact, you even thrive under the constraint, transforming accessible materials into functional solutions. Your ideas are proof that improvements does not necessitate advanced and expensive equipment—endless possibilities for enhancement can stem from even just the ordinary things that lie around. Turning the simple to groundbreaking, you are the reminder that true innovation is not about having more, but instead, seeing the “kislap” in what is already present in one’s hands. ",
+  F: "As the Timeless Thinker, you are the type of innovator who cares deeply about the longevity of things. You seek permanent solutions for persistent problems and view the future as a better world. For you, the future is a blank canvas untapped with endless ideas and possibilities. While others get lost in the latest trends, you’re more focused on what will last. You pursue breakthroughs that will help and inspire others long after you’re gone. Go after your “kislap”—the future needs strong and capable minds like you! "
 };
 
 const SHORT_TRAIT_DESCRIPTIONS = {

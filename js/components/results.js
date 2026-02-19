@@ -35,9 +35,16 @@ const ResultsComponent = {
       </div>`;
     });
     
+    // Add inspirational message before innovations
+    resultHTML += `
+      <div class="mt-6 p-4 bg-gray-50 rounded-lg italic text-gray-700 border-l-4" style="border-left-color: ${topTraitColor.hex};">
+        <p>To further fuel your “kislap,” here are some Filipino-made and Filipino-serving Science & Technologies crafted like a true ${TRAIT_NAMES[topTrait]}! Showing how they were able to pursue their “kislap”, then you certainly can do it too!</p>
+      </div>
+    `;
+    
     // Add innovations section
     resultHTML += `
-      <div class="mt-6 pt-4 border-t-2 border-gray-300">
+      <div class="mt-4 pt-2">
         <p class="font-semibold text-lg mb-3" style="color: ${topTraitColor.hex};">Innovations You're Connected To:</p>
     `;
     
@@ -45,8 +52,8 @@ const ResultsComponent = {
     const images = INNOVATION_IMAGES[topTrait];
     
     // Add both images
-    resultHTML += `<img src="${images[0]}" class="w-full object-contain rounded-lg ">`;
-    resultHTML += `<img src="${images[1]}" class="w-full object-contain rounded-lg ">`;
+    resultHTML += `<img src="${images[0]}" class="w-full object-contain rounded-lg shadow-lg mb-4">`;
+    resultHTML += `<img src="${images[1]}" class="w-full object-contain rounded-lg shadow-lg">`;
     
     resultHTML += `</div>`; // Close innovations div
     resultHTML += "</div>"; // Close the main space-y-3 div
