@@ -35,7 +35,7 @@ const QUESTIONS = [
   { text: "I am capable of improvising on doing a task when the materials I need for it is not available.", weights: { E:1 } },
   { text: "I can see the potential in objects aside from the standard purposes they usually are used for.", weights: { E:1 } },
   { text: "I am creative enough to not give up and work my way around, in times of limited resources.", weights: { E:1 } },
-  { text: "I struggle to solve problems when I do not have the specific materials for it.", weights: { E:1 } }, // Reversed-scored
+  { text: "I thrive in solving problems despite not having any specific equipment for it.", weights: { E:1 } }, // Reversed-scored
   { text: "I cannot start a task if I don't have every single tool that I need for it.", weights: { E:1 } }, // Reversed-scored
   { text: "I believe that new things and technologies can be made from everyday things that most if not all people have.", weights: { E:1 } },
   

@@ -8,7 +8,7 @@ const ResultsComponent = {
       <div class="flex justify-center mb-6">
         <img src="${RESULT_IMAGES[topTrait]}" alt="${TRAIT_NAMES[topTrait]}" class="w-48 h-48 object-cover rounded-xl shadow-lg border-4" style="border-color: ${topTraitColor.hex};">
       </div>
-      <h2 class="text-3xl font-bold mb-2" style="color: ${topTraitColor.hex};">Your Innovator Profile</h2>
+      <h2 class="text-3xl font-bold mb-2" style="color: ${topTraitColor.hex};"> CONGRATULATIONS! </h2>
       <p class="text-xl mb-4">You are...</p>
       <div class='space-y-3 text-left'>
     `;
@@ -33,7 +33,6 @@ const ResultsComponent = {
         <div class="w-full bg-gray-200 rounded-full h-3 mt-1">
           <div class="h-3 rounded-full" style="width: ${percentage}%; background-color: ${traitColor.hex};"></div>
         </div>
-        <p class="text-sm text-gray-600 mt-1">${TRAIT_DESCRIPTIONS[trait]}</p>
       </div>`;
     });
     
