@@ -5,17 +5,18 @@ const ResultsComponent = {
     
     let resultHTML = `
       <!-- ✅ BIG RESULT IMAGE - different from section icons -->
-      <h2 class="text-3xl font-bold mb-2" style="color: ${topTraitColor.hex};"> CONGRATULATIONS! </h2>
       <div class="flex justify-center mb-6">
-        <img src="${RESULT_IMAGES[topTrait]}" alt="${TRAIT_NAMES[topTrait]}" class="w-3/4 h-3/4 object-contain rounded-xl">
+        <img src="${RESULT_IMAGES[topTrait]}" alt="${TRAIT_NAMES[topTrait]}" class="object-cover rounded-xl shadow-lg border-4">
       </div>
+      <h2 class="text-3xl font-bold mb-2" style="color: ${topTraitColor.hex};"> CONGRATULATIONS! </h2>
       <p class="text-xl mb-4">You are...</p>
       <div class='space-y-3 text-left'>
     `;
     
     // Display top trait with highlight
     resultHTML += `<div class="p-4 border-2 rounded-lg mb-4" style="background-color: ${topTraitColor.light.replace('bg-', '')}; border-color: ${topTraitColor.hex};">
-      <p class="text-xl font-black mt-1" style="color: ${topTraitColor.hex};">${TRAIT_NAMES[topTrait]}</p>
+      <p class="text-xl font-bold" style="color: ${topTraitColor.hex};">Your Dominant Style:</p>
+      <p class="text-2xl font-black mt-1" style="color: ${topTraitColor.hex};">${TRAIT_NAMES[topTrait]}</p>
       <p class="text-md text-gray-700 justify mt-2">${TRAIT_DESCRIPTIONS[topTrait]}</p>
     </div>`;
     
