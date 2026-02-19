@@ -42,14 +42,14 @@ const CONFIG = {
   ]
 };
 
-// Personality trait colors
+// Personality trait colors - CORRECTED
 const TRAIT_COLORS = {
-  A: { bg: "bg-amber-500", light: "bg-amber-100", hex: "#f59e0b", dark: "amber-700", button: "bg-amber-600 hover:bg-amber-700", text: "text-amber-600" },
-  B: { bg: "bg-rose-500", light: "bg-rose-100", hex: "#f43f5e", dark: "rose-700", button: "bg-rose-600 hover:bg-rose-700", text: "text-rose-600" },
-  C: { bg: "bg-emerald-500", light: "bg-emerald-100", hex: "#10b981", dark: "emerald-700", button: "bg-emerald-600 hover:bg-emerald-700", text: "text-emerald-600" },
-  D: { bg: "bg-indigo-500", light: "bg-indigo-100", hex: "#6366f1", dark: "indigo-700", button: "bg-indigo-600 hover:bg-indigo-700", text: "text-indigo-600" },
-  E: { bg: "bg-teal-500", light: "bg-teal-100", hex: "#14b8a6", dark: "teal-700", button: "bg-teal-600 hover:bg-teal-700", text: "text-teal-600" },
-  F: { bg: "bg-violet-500", light: "bg-violet-100", hex: "#8b5cf6", dark: "violet-700", button: "bg-violet-600 hover:bg-violet-700", text: "text-violet-600" }
+  A: { bg: "bg-amber-500", light: "bg-amber-100", hex: "#f59e0b", dark: "amber-700", button: "bg-amber-600 hover:bg-amber-700", text: "text-amber-600" }, // Clock/Orange - CORRECT
+  B: { bg: "bg-red-500", light: "bg-red-100", hex: "#ef4444", dark: "red-700", button: "bg-red-600 hover:bg-red-700", text: "text-red-600" }, // PH flag/Red - FIXED
+  C: { bg: "bg-green-500", light: "bg-green-100", hex: "#22c55e", dark: "green-700", button: "bg-green-600 hover:bg-green-700", text: "text-green-600" }, // Flower/Green - FIXED
+  D: { bg: "bg-violet-500", light: "bg-violet-100", hex: "#8b5cf6", dark: "violet-700", button: "bg-violet-600 hover:bg-violet-700", text: "text-violet-600" }, // Clipboard w/ Glasses/Violet - CORRECT
+  E: { bg: "bg-blue-500", light: "bg-blue-100", hex: "#3b82f6", dark: "blue-700", button: "bg-blue-600 hover:bg-blue-700", text: "text-blue-600" }, // Trash Bin/Blue - FIXED
+  F: { bg: "bg-yellow-500", light: "bg-yellow-100", hex: "#eab308", dark: "yellow-700", button: "bg-yellow-600 hover:bg-yellow-700", text: "text-yellow-600" } // Sand timer/Yellow - FIXED
 };
 
 const TRAIT_NAMES = {
@@ -82,10 +82,38 @@ const SHORT_TRAIT_DESCRIPTIONS = {
 // ✅ RESULT IMAGES - these appear on the final results page (different/bigger images)
 const RESULT_IMAGES = {
   A: "assets/images/The Efficient Engineer.png", // or whatever you want to call it
-  B: "assets/images/The Practical People-Helper.png",
+  B: "assets/images/The Practical People-Helper.png", 
   C: "assets/images/The Environment Enthusiast.png",
   D: "assets/images/The Precise Problem-Solver.png",
   E: "assets/images/The Resourceful Recycler.png",
   F: "assets/images/The Timeless Thinker.png"
 };
 
+
+// ✅ INNOVATION IMAGES - paths to innovation images keyed by PERSONALITY
+const INNOVATION_IMAGES = {
+  "A": [ // The Efficient Engineer
+    "assets/images/innovation images/EFFICIENT ENGINEER.png",
+    "assets/images/innovation images/EFFICIENT ENGINEER (2).png"
+  ],
+  "B": [ // The Practical People-Helper
+    "assets/images/innovation images/PRACTICAL PEOPLE HELPER.png",
+    "assets/images/innovation images/PRACTICAL PEOPLE HELPER (2).png"
+  ],
+  "C": [ // The Environment Enthusiast
+    "assets/images/innovation images/ENVIRONMENTAL ENTHUSIAST.png",
+    "assets/images/innovation images/ENVIRONMENTAL ENTHUSIAST (2).png"
+  ],
+  "D": [ // The Precise Problem-Solver
+    "assets/images/innovation images/PRECISE PROBLEM SOLVER.png",
+    "assets/images/innovation images/PRECISE PROBLEM SOLVER (2).png"
+  ],
+  "E": [ // The Resourceful Recycler
+    "assets/images/innovation images/RESOURCEFUL RECYCLER.png",
+    "assets/images/innovation images/RESOURCEFUL RECYCLER (2).png"
+  ],
+  "F": [ // The Timeless Thinker
+    "assets/images/innovation images/TIMELESS THINKER.png",
+    "assets/images/innovation images/TIMELESS THINKER (2).png"
+  ]
+};
