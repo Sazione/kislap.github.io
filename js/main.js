@@ -1,3 +1,4 @@
+
 // ==================== MAIN.JS ====================
 // Application state
 let currentSection = 0;

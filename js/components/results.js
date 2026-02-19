@@ -17,7 +17,7 @@ const ResultsComponent = {
     resultHTML += `<div class="p-4 border-2 rounded-lg mb-4" style="background-color: ${topTraitColor.light.replace('bg-', '')}; border-color: ${topTraitColor.hex};">
       <p class="text-xl font-bold" style="color: ${topTraitColor.hex};">Your Dominant Style:</p>
       <p class="text-2xl font-black mt-1" style="color: ${topTraitColor.hex};">${TRAIT_NAMES[topTrait]}</p>
-      <p class="text-md text-gray-700 mt-2">${TRAIT_DESCRIPTIONS[topTrait]}</p>
+      <p class="text-md text-gray-700 justify mt-2">${TRAIT_DESCRIPTIONS[topTrait]}</p>
     </div>`;
     
     // Display all scores

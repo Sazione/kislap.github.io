@@ -70,6 +70,15 @@ const TRAIT_DESCRIPTIONS = {
   F: "You build for centuries, not seconds. Your work is your legacy, crafted with permanence in mind."
 };
 
+const SHORT_TRAIT_DESCRIPTIONS = {
+  A: "You optimize processes and value efficiency above all. You make things better, faster, and smarter.",
+  B: "You're driven by compassion and community. Your innovations center around human needs.",
+  C: "You champion sustainability. You create solutions that honor and protect our planet.",
+  D: "You notice what others miss. Your analytical mind dissects problems with surgical precision.",
+  E: "You see potential everywhere. Nothing goes to waste in your hands—you're a master of adaptation.",
+  F: "You build for centuries, not seconds. Your work is your legacy, crafted with permanence in mind."
+};
+
 // ✅ RESULT IMAGES - these appear on the final results page (different/bigger images)
 const RESULT_IMAGES = {
   A: "assets/images/efficient engineer.png", // or whatever you want to call it
