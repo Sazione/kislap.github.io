@@ -1,5 +1,5 @@
 const ResultsComponent = {
-  // Render results page - WITH RESULT IMAGE AND INNOVATIONS
+  // Render results page - WITH RESULT IMAGE
   render: (scores, topTrait, topTraitColor) => {
     const sortedTraits = ScoringUtils.getSortedTraits(scores);
     
@@ -34,36 +34,6 @@ const ResultsComponent = {
         </div>
       </div>`;
     });
-    
-    // THEN display innovations for top trait
-    resultHTML += `
-      <div class="mt-6 pt-4 border-t-2 border-gray-300">
-        <p class="font-semibold text-lg mb-3" style="color: ${topTraitColor.hex};">Innovations You're Connected To:</p>
-    `;
-    
-    // Get images for this personality using the trait letter
-    const personalityImages = INNOVATION_IMAGES[topTrait];
-    
-    // Add each innovation with its 2 images
-    INNOVATIONS_BY_PERSONALITY[topTrait].forEach(innovation => {
-      resultHTML += `
-        <div class="mb-6">
-          <h3 class="text-md font-bold mb-2" style="color: ${topTraitColor.hex};">${innovation}</h3>
-          <div class="space-y-3">
-            <div class="shadow-lg rounded-lg overflow-hidden">
-              <img src="${personalityImages[0]}" alt="${innovation} - version 1" class="w-full object-contain">
-            </div>
-            <div class="shadow-lg rounded-lg overflow-hidden">
-              <img src="${personalityImages[1]}" alt="${innovation} - version 2" class="w-full object-contain">
-            </div>
-          </div>
-        </div>
-      `;
-    });
-    
-    resultHTML += `
-      </div>
-    `;
     
     resultHTML += "</div>";
     

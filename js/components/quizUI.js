@@ -115,6 +115,9 @@ const QuizUI = {
       QuizUI.elements.questionsContainer.innerHTML = `
         <div class="p-6 text-center">
           ${ResultsComponent.render(scores, topTrait, topTraitColor)}
+          <button onclick="location.reload()" class="mt-8 px-8 py-4 ${topTraitColor.button} text-white font-semibold rounded-lg shadow-md transition-all duration-200 hover:shadow-xl hover:scale-105">
+            Take Quiz Again
+          </button>
         </div>
       `;
     }
