@@ -6,7 +6,7 @@ const ResultsComponent = {
     let resultHTML = `
       <!-- ✅ BIG RESULT IMAGE - different from section icons -->
       <div class="flex justify-center mb-6">
-        <img src="${RESULT_IMAGES[topTrait]}" alt="${TRAIT_NAMES[topTrait]}" class="w-48 h-48 object-cover rounded-xl shadow-lg border-4" style="border-color: ${topTraitColor.hex};">
+        <img src="${RESULT_IMAGES[topTrait]}" alt="${TRAIT_NAMES[topTrait]}" class="object-cover rounded-xl shadow-lg border-4">
       </div>
       <h2 class="text-3xl font-bold mb-2" style="color: ${topTraitColor.hex};"> CONGRATULATIONS! </h2>
       <p class="text-xl mb-4">You are...</p>
