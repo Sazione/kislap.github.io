@@ -1,5 +1,5 @@
 const ResultsComponent = {
-  // Render results page - WITH RESULT IMAGE
+  // Render results page - WITH RESULT IMAGE AND INNOVATIONS
   render: (scores, topTrait, topTraitColor) => {
     const sortedTraits = ScoringUtils.getSortedTraits(scores);
     
@@ -35,7 +35,21 @@ const ResultsComponent = {
       </div>`;
     });
     
-    resultHTML += "</div>";
+    // Add innovations section
+    resultHTML += `
+      <div class="mt-6 pt-4 border-t-2 border-gray-300">
+        <p class="font-semibold text-lg mb-3" style="color: ${topTraitColor.hex};">Innovations You're Connected To:</p>
+    `;
+    
+    // Get the two images for this personality
+    const images = INNOVATION_IMAGES[topTrait];
+    
+    // Add both images
+    resultHTML += `<img src="${images[0]}" class="w-full object-contain rounded-lg ">`;
+    resultHTML += `<img src="${images[1]}" class="w-full object-contain rounded-lg ">`;
+    
+    resultHTML += `</div>`; // Close innovations div
+    resultHTML += "</div>"; // Close the main space-y-3 div
     
     return resultHTML;
   }
