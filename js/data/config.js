@@ -81,11 +81,11 @@ const SHORT_TRAIT_DESCRIPTIONS = {
 
 // ✅ RESULT IMAGES - these appear on the final results page (different/bigger images)
 const RESULT_IMAGES = {
-  A: "assets/images/efficient engineer.png", // or whatever you want to call it
-  B: "assets/images/people helper.png",
-  C: "assets/images/environment enthusiast.png",
-  D: "assets/images/precise problem solver.png",
-  E: "assets/images/resourceful recycler.png",
-  F: "assets/images/timeless thinker.png"
+  A: "assets/images/The Efficient Engineer.png", // or whatever you want to call it
+  B: "assets/images/The Practical People-Helper.png",
+  C: "assets/images/The Environment Enthusiast.png",
+  D: "assets/images/The Precise Problem-Solver.png",
+  E: "assets/images/The Resourceful Recycler.png",
+  F: "assets/images/The Timeless Thinker.png"
 };
 
