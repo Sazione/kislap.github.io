@@ -8,39 +8,39 @@ const QUESTIONS = [
   { text: "I believe that solving problems should focus on saving time, effort, and money.", weights: { A:1 } },
   
   // Section 2: The Practical People-Helper (B)
-  { text: "I instinctively help others when I see they are struggling.", weights: { B:1 } },
-  { text: "I actively seek out volunteering opportunities in my community.", weights: { B:1 } },
-  { text: "I prefer pets that are loyal and affectionate.", weights: { B:1 } },
+  { text: "I immediately help when I see someone struggling.", weights: { B:1 } },
+  { text: "I participate in volunteerism often.", weights: { B:1 } },
+  { text: "I usually feel fulfilled rather than drained when helping someone.", weights: { B:1 } },
   { text: "I am motivated to help others because I genuinely care about their wellbeing.", weights: { B:1 } },
-  { text: "I believe a world where everyone helps one another is achievable.", weights: { B:1 } },
-  { text: "Making others smile brings me genuine joy.", weights: { B:1 } },
+  { text: "I'm willing to work for a world where every human helps one another.", weights: { B:1 } },
+  { text: "I put in the effort in making people smile.", weights: { B:1 } },
   
   // Section 3: The Environment Enthusiast (C)
-  { text: "I actively try to reduce my carbon footprint in daily life.", weights: { C:1 } },
-  { text: "I feel a strong connection to nature and the outdoors.", weights: { C:1 } },
-  { text: "I believe businesses should be held accountable for environmental damage.", weights: { C:1 } },
-  { text: "I would pay more for sustainable and eco-friendly products.", weights: { C:1 } },
-  { text: "I get frustrated when I see people wasting resources like water or electricity.", weights: { C:1 } },
-  { text: "I think about how my choices today will affect the planet for future generations.", weights: { C:1 } },
+  { text: "I segregate my trash wherever I go.", weights: { C:1 } },
+  { text: "I save resources such as, but not limited to, electricity, water, and paper.", weights: { C:1 } },
+  { text: "I avoid using plastic containers and would rather use reusable containers.", weights: { C:1 } },
+  { text: "I use paper bags or reusable bags instead of plastic bags.", weights: { C:1 } },
+  { text: "I pick up litter I see even if they're not from me.", weights: { C:1 } },
+  { text: "I walk, bike, or commute instead of using private vehicles for transportation.", weights: { C:1 } },
   
-  // Section 4: The Precise Problem-Solver (D) - NO MORE REVERSED
+  // Section 4: The Precise Problem-Solver (D)
   { text: "I am naturally drawn to issues that most people overlook.", weights: { D:1 } },
-  { text: "I carefully analyze all available information before making decisions.", weights: { D:1 } }, // was reversed
-  { text: "When something malfunctions, I systematically diagnose the root cause.", weights: { D:1 } },
-  { text: "I view failures as valuable data for future improvements.", weights: { D:1 } },
-  { text: "I pay close attention to small details in my work.", weights: { D:1 } }, // was reversed
-  { text: "I am motivated to refine and improve existing solutions to persisting problems.", weights: { D:1 } },
+  { text: "I believe that it is time consuming and unnecessary to wait for all the facts before making a decision.", weights: { D:1 } }, // Note: This might be reversed-scored in practice
+  { text: "If something malfunctions, I find myself trying to understand what happened first before asking others for help.", weights: { D:1 } },
+  { text: "I see 'trial and error' as a way to gather data rather than as a series of failures.", weights: { D:1 } },
+  { text: "I overlook the small details because I prefer to focus on the bigger picture.", weights: { D:1 } }, // Note: This might be reversed-scored
+  { text: "I am motivated to refine and improve existing solutions to the persisting problems in our society.", weights: { D:1 } },
   
-  // Section 5: The Resourceful Recycler (E) - NO MORE REVERSED
-  { text: "I can easily improvise when I don't have the exact materials I need.", weights: { E:1 } },
-  { text: "I see creative potential in ordinary objects beyond their intended use.", weights: { E:1 } },
-  { text: "I find creative ways to work around limited resources.", weights: { E:1 } },
-  { text: "I can solve problems effectively even without specialized tools.", weights: { E:1 } }, // was reversed
-  { text: "I am comfortable starting tasks even when I don't have every tool I might need.", weights: { E:1 } }, // was reversed
-  { text: "I believe everyday items can be transformed into something new and useful.", weights: { E:1 } },
+  // Section 5: The Resourceful Recycler (E)
+  { text: "I am capable of improvising on doing a task when the materials I need for it is not available.", weights: { E:1 } },
+  { text: "I can see the potential in objects aside from the standard purposes they usually are used for.", weights: { E:1 } },
+  { text: "I am creative enough to not give up and work my way around, in times of limited resources.", weights: { E:1 } },
+  { text: "I struggle to solve problems when I do not have the specific materials for it.", weights: { E:1 } }, // Reversed-scored
+  { text: "I cannot start a task if I don't have every single tool that I need for it.", weights: { E:1 } }, // Reversed-scored
+  { text: "I believe that new things and technologies can be made from everyday things that most if not all people have.", weights: { E:1 } },
   
   // Section 6: The Timeless Thinker (F)
-  { text: "I am sentimental about enduring my legacy.", weights: { F:1 } },
+  { text: "I care about the longevity of things.", weights: { F:1 } },
   { text: "I view innovation as something designed for permanence.", weights: { F:1 } },
   { text: "I strive to provide long-term solutions for persistent problems.", weights: { F:1 } },
   { text: "I am driven by the success of the future.", weights: { F:1 } },
