@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
             QuizUI.showResults(scores, topTrait, topTraitColor);
           }
         }
+        confetti();
         
         // Scroll again after results load
         setTimeout(() => {
