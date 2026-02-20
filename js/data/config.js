@@ -26,7 +26,7 @@ const CONFIG = {
   ],
   sectionFunFacts: [
     "⚡ You've been, Thunderstruck! But seriously, be careful around electricity                     ",
-    "💝 <3 :D :) ¯\_(ツ)_/¯ ツ Be nice to people. Stay Determined                               ",
+    "💝 <3 :D :) &#175;\_(&#12484;)_/&#175; ツ Be nice to people. Stay Determined                               ",
     "🌍 I like grass. I like trees. I like flowers. The world is nice.                                    ",
     "🔬 What's 10 + 9? (21). Not 67, please no.                                ",
     "♻️ Reduce, Reuse, and What? That's right, Recycle!                         ",

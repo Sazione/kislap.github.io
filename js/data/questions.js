@@ -16,27 +16,27 @@ const QUESTIONS = [
   { text: "I put in the effort in making people smile.", weights: { B:1 } },
   
   // Section 3: The Environment Enthusiast (C)
-  { text: "I segregate my trash wherever I go.", weights: { C:1 } },
+  { text: "I am mindful about the trash I contribute to the environment.", weights: { C:1 } },
   { text: "I save resources such as, but not limited to, electricity, water, and paper.", weights: { C:1 } },
-  { text: "I avoid using plastic containers and would rather use reusable containers.", weights: { C:1 } },
-  { text: "I use paper bags or reusable bags instead of plastic bags.", weights: { C:1 } },
-  { text: "I pick up litter I see even if they're not from me.", weights: { C:1 } },
-  { text: "I walk, bike, or commute instead of using private vehicles for transportation.", weights: { C:1 } },
+  { text: "I use environment-friendly alternatives for my tasks as opposed to disposable and one-time-used tools.", weights: { C:1 } },
+  { text: "I make sure that I do not throw away any consumables I have until I have maximized their use.", weights: { C:1 } },
+  { text: "I think and reflect a lot about the effects of climate change and/or global warming.", weights: { C:1 } },
+  { text: "I prefer to walk, bike, or commute instead of using private vehicles for transportation.", weights: { C:1 } },
   
   // Section 4: The Precise Problem-Solver (D)
   { text: "I am naturally drawn to issues that most people overlook.", weights: { D:1 } },
-  { text: "I believe that it is time consuming and unnecessary to wait for all the facts before making a decision.", weights: { D:1 } }, // Note: This might be reversed-scored in practice
+  { text: "I take time to gather all the facts before making a decision.", weights: { D:1 } }, // ✅ Rephrased (was reverse-scored)
   { text: "If something malfunctions, I find myself trying to understand what happened first before asking others for help.", weights: { D:1 } },
   { text: "I see 'trial and error' as a way to gather data rather than as a series of failures.", weights: { D:1 } },
-  { text: "I overlook the small details because I prefer to focus on the bigger picture.", weights: { D:1 } }, // Note: This might be reversed-scored
+  { text: "I pay close attention to small details while also considering the bigger picture.", weights: { D:1 } }, // ✅ Rephrased (was reverse-scored)
   { text: "I am motivated to refine and improve existing solutions to the persisting problems in our society.", weights: { D:1 } },
   
   // Section 5: The Resourceful Recycler (E)
   { text: "I am capable of improvising on doing a task when the materials I need for it is not available.", weights: { E:1 } },
   { text: "I can see the potential in objects aside from the standard purposes they usually are used for.", weights: { E:1 } },
   { text: "I am creative enough to not give up and work my way around, in times of limited resources.", weights: { E:1 } },
-  { text: "I thrive in solving problems despite not having any specific equipment for it.", weights: { E:1 } }, // Reversed-scored
-  { text: "I cannot start a task if I don't have every single tool that I need for it.", weights: { E:1 } }, // Reversed-scored
+  { text: "I can solve problems effectively even without specialized equipment.", weights: { E:1 } }, // ✅ Rephrased (was reverse-scored)
+  { text: "I can start a task even if I don't have every single tool that I need for it.", weights: { E:1 } }, // ✅ Rephrased (was reverse-scored)
   { text: "I believe that new things and technologies can be made from everyday things that most if not all people have.", weights: { E:1 } },
   
   // Section 6: The Timeless Thinker (F)
